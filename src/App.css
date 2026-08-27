@@ -1,0 +1,134 @@
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.record-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding: 28px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.field__label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.intensity-dial__track {
+  width: 64px;
+  border-radius: 32px;
+  background: var(--track-bg);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  touch-action: none;
+  cursor: pointer;
+}
+
+.intensity-dial__fill {
+  width: 100%;
+  border-radius: 32px;
+  transition: height 60ms linear;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.chip {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.chip.is-selected {
+  background: var(--chip-color);
+  border-color: var(--chip-color);
+  color: #fff;
+}
+
+.chip--neutral.is-selected {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--surface);
+}
+
+.word-input {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  text-align: center;
+}
+
+.word-input:focus {
+  outline: none;
+  border-color: var(--text-muted);
+}
+
+.save-button {
+  padding: 12px 36px;
+  border-radius: 999px;
+  border: none;
+  background: var(--text);
+  color: var(--surface);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.save-button:disabled {
+  background: var(--border);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.accumulation {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.month-strip__label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.month-strip__scroll {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.month-strip__svg {
+  display: block;
+}
