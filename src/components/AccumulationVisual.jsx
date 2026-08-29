@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getAllRecords } from '../db'
-import MonthStrip from './MonthStrip'
+import MonthWave from './MonthWave'
 
 function groupByMonth(records) {
   const map = new Map()
@@ -28,7 +28,7 @@ export default function AccumulationVisual({ refreshKey }) {
   return (
     <section className="accumulation">
       {months.map(([key, monthRecords]) => (
-        <MonthStrip key={key} monthKey={key} records={monthRecords} />
+        <MonthWave key={key} monthKey={key} records={monthRecords} />
       ))}
     </section>
   )

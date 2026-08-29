@@ -1,45 +1,42 @@
 import { useState } from 'react'
-import IntensityDial from './IntensityDial'
-import TypeSelector from './TypeSelector'
-import BodySelector from './BodySelector'
-import WordInput from './WordInput'
-import { typeColor } from '../constants'
+import ScoreSlider from './ScoreSlider'
+import OriginSelector from './OriginSelector'
 import { addRecord } from '../db'
 
 export default function RecordForm({ onSaved }) {
-  const [intensity, setIntensity] = useState(0.5)
-  const [type, setType] = useState(null)
-  const [bodyPart, setBodyPart] = useState(null)
-  const [word, setWord] = useState('')
+  const [bodyScore, setBodyScore] = useState(50)
+  const [spaceScore, setSpaceScore] = useState(50)
+  const [origins, setOrigins] = useState([])
 
-  const canSave = Boolean(type)
+  const canSave = origins.length > 0
 
   const handleSave = async () => {
     if (!canSave) return
     await addRecord({
       timestamp: Date.now(),
-      intensity,
-      type,
-      bodyPart,
-      word: word || null,
+      bodyScore,
+      spaceScore,
+      origins,
     })
-    setIntensity(0.5)
-    setType(null)
-    setBodyPart(null)
-    setWord('')
+    setBodyScore(50)
+    setSpaceScore(50)
+    setOrigins([])
     onSaved()
   }
 
   return (
     <section className="record-form">
-      <IntensityDial
-        value={intensity}
-        onChange={setIntensity}
-        color={type ? typeColor(type) : '#9a9a9a'}
+      <ScoreSlider
+        label="体の調子"
+        value={bodyScore}
+        onChange={setBodyScore}
       />
-      <TypeSelector value={type} onChange={setType} />
-      <BodySelector value={bodyPart} onChange={setBodyPart} />
-      <WordInput value={word} onChange={setWord} />
+      <ScoreSlider
+        label="心の余白"
+        value={spaceScore}
+        onChange={setSpaceScore}
+      />
+      <OriginSelector value={origins} onChange={setOrigins} />
       <button
         type="button"
         className="save-button"
