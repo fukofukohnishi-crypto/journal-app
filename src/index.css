@@ -1,22 +1,21 @@
 :root {
-  --bg: #f7f5f1;
-  --surface: #ffffff;
-  --border: #e4e1da;
-  --track-bg: #ece9e2;
-  --text: #2b2a28;
-  --text-muted: #8a8680;
-  color-scheme: light dark;
-}
+  --bg: #14171b;
+  --text: #e4e0d6;
+  --text-muted: #7c8188;
+  --rule: #1e2228;
+  --chip-border: #262a30;
+  color-scheme: dark;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1b1a18;
-    --surface: #242220;
-    --border: #38352f;
-    --track-bg: #2c2a26;
-    --text: #e7e4de;
-    --text-muted: #9a968e;
-  }
+  --font-label: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --font-mono:
+    ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono',
+    monospace;
+  --font-body:
+    system-ui,
+    -apple-system,
+    'Hiragino Sans',
+    'Yu Gothic',
+    sans-serif;
 }
 
 * {
@@ -33,12 +32,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family:
-    system-ui,
-    -apple-system,
-    'Hiragino Sans',
-    'Yu Gothic',
-    sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
 
