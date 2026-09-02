@@ -9,7 +9,7 @@ export default function OriginSelector({ value, onChange }) {
 
   return (
     <div className="field">
-      <div className="field__label">どこから来ているか</div>
+      <div className="field__label">頭にあること</div>
       <div className="chip-row">
         {ORIGINS.map((o) => (
           <button

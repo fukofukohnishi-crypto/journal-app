@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import ScoreSlider from './ScoreSlider'
 import OriginSelector from './OriginSelector'
+import ActionSelector from './ActionSelector'
 import { addRecord } from '../db'
 
 export default function RecordForm({ onSaved }) {
   const [bodyScore, setBodyScore] = useState(50)
   const [spaceScore, setSpaceScore] = useState(50)
   const [origins, setOrigins] = useState([])
+  const [actions, setActions] = useState([])
 
   const canSave = origins.length > 0
 
@@ -17,10 +19,12 @@ export default function RecordForm({ onSaved }) {
       bodyScore,
       spaceScore,
       origins,
+      actions,
     })
     setBodyScore(50)
     setSpaceScore(50)
     setOrigins([])
+    setActions([])
     onSaved()
   }
 
@@ -37,6 +41,7 @@ export default function RecordForm({ onSaved }) {
         onChange={setSpaceScore}
       />
       <OriginSelector value={origins} onChange={setOrigins} />
+      <ActionSelector value={actions} onChange={setActions} />
       <button
         type="button"
         className="save-button"

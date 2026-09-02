@@ -7,6 +7,7 @@ const SPACING = 18
 const DOT_GAP = 8
 const DOT_RADIUS = 2.5
 const POINT_RADIUS = 2.5
+const ACTION_MARK_RADIUS = 5.5
 
 function scoreY(score) {
   const usable = CHART_HEIGHT - TOP_MARGIN - BOTTOM_MARGIN
@@ -72,6 +73,16 @@ export default function MonthWave({ monthKey, records }) {
                   r={POINT_RADIUS}
                   fill="var(--text)"
                 />
+                {(r.actions ?? []).length > 0 && (
+                  <circle
+                    cx={x}
+                    cy={scoreY(r.bodyScore)}
+                    r={ACTION_MARK_RADIUS}
+                    fill="none"
+                    stroke="var(--text)"
+                    strokeWidth="1"
+                  />
+                )}
                 {(r.origins ?? []).map((originId, oi) => (
                   <circle
                     key={originId}
