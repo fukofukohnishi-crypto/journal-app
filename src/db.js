@@ -20,9 +20,10 @@ function openDB() {
   })
 }
 
-// record: { timestamp, bodyScore, spaceScore, origins }
+// record: { timestamp, bodyScore, spaceScore, origins, actions }
 // bodyScore = 体の調子 (0-100), spaceScore = 心の余白 (0-100)
-// origins = どこから来ているか（複数選択の id 配列）
+// origins = 頭にあること（複数選択の id 配列）
+// actions = やったこと（複数選択・任意の id 配列）
 export async function addRecord(record) {
   const db = await openDB()
   return new Promise((resolve, reject) => {

@@ -1,10 +1,11 @@
 :root {
-  --bg: #14171b;
-  --text: #e4e0d6;
-  --text-muted: #7c8188;
-  --rule: #1e2228;
-  --chip-border: #262a30;
-  color-scheme: dark;
+  --bg: #f5f1e8;
+  --surface: #fbf9f3;
+  --text: #2e2c29;
+  --text-muted: #7a756d;
+  --rule: #e4ded1;
+  --chip-border: #d9d2c4;
+  color-scheme: light;
 
   --font-label: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   --font-mono:
