@@ -34,6 +34,11 @@ export default function DayRecords({ date, refreshKey }) {
               />
             ))}
           </span>
+          {(r.originNote || r.actionNote) && (
+            <span className="day-records__note">
+              {[r.originNote, r.actionNote].filter(Boolean).join(' ／ ')}
+            </span>
+          )}
         </div>
       ))}
     </div>

@@ -87,6 +87,12 @@
   border-radius: 50%;
 }
 
+.day-records__note {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .record-form {
   display: flex;
   flex-direction: column;
@@ -196,6 +202,26 @@
   background: var(--text);
   border-color: var(--text);
   color: var(--surface);
+}
+
+.memo-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--chip-border);
+  background: transparent;
+  padding: 6px 2px;
+  font-size: 13px;
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+.memo-input::placeholder {
+  color: var(--text-muted);
+}
+
+.memo-input:focus {
+  outline: none;
+  border-bottom-color: var(--text-muted);
 }
 
 .save-button {

@@ -1,6 +1,7 @@
 import { ORIGINS } from '../constants'
+import MemoInput from './MemoInput'
 
-export default function OriginSelector({ value, onChange }) {
+export default function OriginSelector({ value, onChange, note, onNoteChange }) {
   const toggle = (id) => {
     onChange(
       value.includes(id) ? value.filter((v) => v !== id) : [...value, id],
@@ -23,6 +24,7 @@ export default function OriginSelector({ value, onChange }) {
           </button>
         ))}
       </div>
+      <MemoInput value={note} onChange={onNoteChange} />
     </div>
   )
 }
