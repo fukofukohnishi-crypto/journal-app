@@ -7,6 +7,7 @@ export default function ScoreSlider({ label, value, onChange }) {
         type="range"
         min={0}
         max={100}
+        step={10}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
         className="score-field__slider"
