@@ -200,16 +200,19 @@
 
 .save-button {
   align-self: center;
-  padding: 10px 32px;
+  margin-top: 8px;
+  padding: 16px 56px;
   border-radius: 999px;
-  border: 1px solid var(--chip-border);
-  background: transparent;
-  color: var(--text);
-  font-size: 15px;
+  border: 1px solid var(--text);
+  background: var(--text);
+  color: var(--surface);
+  font-size: 17px;
   cursor: pointer;
 }
 
 .save-button:disabled {
+  border-color: var(--chip-border);
+  background: var(--chip-border);
   color: var(--text-muted);
   cursor: not-allowed;
 }
