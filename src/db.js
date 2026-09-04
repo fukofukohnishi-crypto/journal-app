@@ -43,3 +43,21 @@ export async function getAllRecords() {
     req.onerror = () => reject(req.error)
   })
 }
+
+// date: 表示したい日の Date（時刻部分は無視される）
+export async function getRecordsForDate(date) {
+  const start = new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate(),
+  ).getTime()
+  const end = start + 24 * 60 * 60 * 1000
+  const db = await openDB()
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE_NAME, 'readonly')
+    const range = IDBKeyRange.bound(start, end, false, true)
+    const req = tx.objectStore(STORE_NAME).index('timestamp').getAll(range)
+    req.onsuccess = () => resolve(req.result)
+    req.onerror = () => reject(req.error)
+  })
+}
