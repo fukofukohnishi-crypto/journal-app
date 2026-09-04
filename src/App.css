@@ -7,6 +7,14 @@
   gap: 32px;
 }
 
+.hero-image {
+  display: block;
+  width: calc(100% + 32px);
+  margin: -32px -16px 0;
+  max-height: 220px;
+  object-fit: cover;
+}
+
 .record-form {
   display: flex;
   flex-direction: column;
