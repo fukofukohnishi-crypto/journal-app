@@ -15,6 +15,78 @@
   object-fit: cover;
 }
 
+.day-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.date-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.date-nav__arrow {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 20px;
+  line-height: 1;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.date-nav__arrow:disabled {
+  color: var(--chip-border);
+  cursor: default;
+}
+
+.date-nav__label {
+  font-family: var(--font-label);
+  letter-spacing: 0.05em;
+  font-size: 15px;
+  color: var(--text);
+  min-width: 170px;
+  text-align: center;
+}
+
+.day-records {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.day-records__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.day-records__time {
+  font-family: var(--font-mono);
+  width: 40px;
+}
+
+.day-records__score {
+  font-family: var(--font-mono);
+  width: 36px;
+}
+
+.day-records__dots {
+  display: flex;
+  gap: 4px;
+}
+
+.day-records__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
 .record-form {
   display: flex;
   flex-direction: column;
