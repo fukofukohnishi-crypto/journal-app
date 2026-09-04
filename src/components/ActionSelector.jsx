@@ -10,7 +10,7 @@ export default function ActionSelector({ value, onChange, note, onNoteChange }) 
 
   return (
     <div className="field">
-      <div className="field__label">やったこと（任意）</div>
+      <div className="field__label">やったこと</div>
       <div className="chip-row">
         {ACTIONS.map((a) => (
           <button
