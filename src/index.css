@@ -1,0 +1,42 @@
+:root {
+  --bg: #f5f1e8;
+  --surface: #fbf9f3;
+  --text: #2e2c29;
+  --text-muted: #7a756d;
+  --rule: #e4ded1;
+  --chip-border: #d9d2c4;
+  color-scheme: light;
+
+  --font-label: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --font-mono:
+    ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono',
+    monospace;
+  --font-body:
+    system-ui,
+    -apple-system,
+    'Hiragino Sans',
+    'Yu Gothic',
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
