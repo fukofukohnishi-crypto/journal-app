@@ -1,6 +1,7 @@
 import { ACTIONS } from '../constants'
+import MemoInput from './MemoInput'
 
-export default function ActionSelector({ value, onChange }) {
+export default function ActionSelector({ value, onChange, note, onNoteChange }) {
   const toggle = (id) => {
     onChange(
       value.includes(id) ? value.filter((v) => v !== id) : [...value, id],
@@ -22,6 +23,7 @@ export default function ActionSelector({ value, onChange }) {
           </button>
         ))}
       </div>
+      <MemoInput value={note} onChange={onNoteChange} />
     </div>
   )
 }

@@ -9,6 +9,8 @@ export default function RecordForm({ onSaved }) {
   const [spaceScore, setSpaceScore] = useState(50)
   const [origins, setOrigins] = useState([])
   const [actions, setActions] = useState([])
+  const [originNote, setOriginNote] = useState('')
+  const [actionNote, setActionNote] = useState('')
 
   const canSave = origins.length > 0
 
@@ -20,11 +22,15 @@ export default function RecordForm({ onSaved }) {
       spaceScore,
       origins,
       actions,
+      originNote: originNote || null,
+      actionNote: actionNote || null,
     })
     setBodyScore(50)
     setSpaceScore(50)
     setOrigins([])
     setActions([])
+    setOriginNote('')
+    setActionNote('')
     onSaved()
   }
 
@@ -40,8 +46,18 @@ export default function RecordForm({ onSaved }) {
         value={spaceScore}
         onChange={setSpaceScore}
       />
-      <OriginSelector value={origins} onChange={setOrigins} />
-      <ActionSelector value={actions} onChange={setActions} />
+      <OriginSelector
+        value={origins}
+        onChange={setOrigins}
+        note={originNote}
+        onNoteChange={setOriginNote}
+      />
+      <ActionSelector
+        value={actions}
+        onChange={setActions}
+        note={actionNote}
+        onNoteChange={setActionNote}
+      />
       <button
         type="button"
         className="save-button"
