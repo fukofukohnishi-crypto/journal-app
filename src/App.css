@@ -306,8 +306,16 @@
   flex-shrink: 0;
 }
 
+.memo-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
 .memo-input {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   border: none;
   border-bottom: 1px solid var(--chip-border);
   background: transparent;
@@ -324,6 +332,17 @@
 .memo-input:focus {
   outline: none;
   border-bottom-color: var(--text-muted);
+}
+
+.memo-field__confirm {
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1;
+  padding: 4px 6px;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .save-button {
