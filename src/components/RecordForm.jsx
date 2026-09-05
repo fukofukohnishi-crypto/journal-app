@@ -1,18 +1,30 @@
 import { useState } from 'react'
 import ScoreSlider from './ScoreSlider'
 import OriginSelector from './OriginSelector'
-import ActionSelector from './ActionSelector'
+import ThoughtsSelector from './ThoughtsSelector'
 import { addRecord } from '../db'
 
 export default function RecordForm({ onSaved }) {
   const [bodyScore, setBodyScore] = useState(50)
   const [spaceScore, setSpaceScore] = useState(50)
   const [origins, setOrigins] = useState([])
-  const [actions, setActions] = useState([])
-  const [originNote, setOriginNote] = useState('')
-  const [actionNote, setActionNote] = useState('')
+  const [originNotes, setOriginNotes] = useState({})
+  const [thoughts, setThoughts] = useState([])
 
   const canSave = origins.length > 0
+
+  const handleOriginChange = (next) => {
+    setOrigins(next)
+    setOriginNotes((prev) => {
+      const nextNotes = {}
+      for (const id of next) nextNotes[id] = prev[id] ?? ''
+      return nextNotes
+    })
+  }
+
+  const handleNoteChange = (id, note) => {
+    setOriginNotes((prev) => ({ ...prev, [id]: note }))
+  }
 
   const handleSave = async () => {
     if (!canSave) return
@@ -21,16 +33,14 @@ export default function RecordForm({ onSaved }) {
       bodyScore,
       spaceScore,
       origins,
-      actions,
-      originNote: originNote || null,
-      actionNote: actionNote || null,
+      originNotes,
+      thoughts,
     })
     setBodyScore(50)
     setSpaceScore(50)
     setOrigins([])
-    setActions([])
-    setOriginNote('')
-    setActionNote('')
+    setOriginNotes({})
+    setThoughts([])
     onSaved()
   }
 
@@ -48,16 +58,11 @@ export default function RecordForm({ onSaved }) {
       />
       <OriginSelector
         value={origins}
-        onChange={setOrigins}
-        note={originNote}
-        onNoteChange={setOriginNote}
+        onChange={handleOriginChange}
+        notes={originNotes}
+        onNoteChange={handleNoteChange}
       />
-      <ActionSelector
-        value={actions}
-        onChange={setActions}
-        note={actionNote}
-        onNoteChange={setActionNote}
-      />
+      <ThoughtsSelector value={thoughts} onChange={setThoughts} />
       <button
         type="button"
         className="save-button"

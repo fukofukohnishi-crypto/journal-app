@@ -1,13 +1,14 @@
 import { originColor } from '../constants'
 
 const CHART_HEIGHT = 110
-const TOP_MARGIN = 10
+const TOP_MARGIN = 30
 const BOTTOM_MARGIN = 10
 const SPACING = 18
 const DOT_GAP = 8
 const DOT_RADIUS = 2.5
 const POINT_RADIUS = 2.5
-const ACTION_MARK_RADIUS = 5.5
+const THOUGHT_MARK_RADIUS = 2
+const THOUGHT_MARK_GAP = 5
 
 function scoreY(score) {
   const usable = CHART_HEIGHT - TOP_MARGIN - BOTTOM_MARGIN
@@ -73,16 +74,15 @@ export default function MonthWave({ monthKey, records }) {
                   r={POINT_RADIUS}
                   fill="var(--text)"
                 />
-                {(r.actions ?? []).length > 0 && (
+                {(r.thoughts ?? []).map((_, ti) => (
                   <circle
+                    key={ti}
                     cx={x}
-                    cy={scoreY(r.bodyScore)}
-                    r={ACTION_MARK_RADIUS}
-                    fill="none"
-                    stroke="var(--text)"
-                    strokeWidth="1"
+                    cy={scoreY(r.bodyScore) - 7 - ti * THOUGHT_MARK_GAP}
+                    r={THOUGHT_MARK_RADIUS}
+                    fill="var(--text-muted)"
                   />
-                )}
+                ))}
                 {(r.origins ?? []).map((originId, oi) => (
                   <circle
                     key={originId}

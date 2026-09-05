@@ -9,12 +9,19 @@ export const ORIGINS = [
   { id: 'unknown', label: 'わからない', color: '#8A8F96' },
 ]
 
-export const ACTIONS = [
-  { id: 'walk', label: '歩いた' },
-  { id: 'stretch', label: 'ストレッチ' },
-  { id: 'sleep', label: 'よく寝た' },
-  { id: 'alone', label: '一人の時間があった' },
-  { id: 'create', label: 'ピアノ・絵・曲' },
+// 引き算（手放せた）6項目 → 足し算（出せた・感じられた）5項目の順
+export const DEFAULT_THOUGHTS = [
+  'まあいいか',
+  'これでじゅうぶん',
+  'やらなくて平気だった',
+  '心配しすぎだった',
+  '目の前のことだけ見てた',
+  '人の目が、あまり気にならなかった',
+  'わからないって言えた',
+  'それ、私は違うな',
+  'よくやってる',
+  '好きかも',
+  '人に任せられた',
 ]
 
 export function originColor(id) {

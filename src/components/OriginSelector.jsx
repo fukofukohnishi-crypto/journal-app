@@ -1,12 +1,14 @@
 import { ORIGINS } from '../constants'
 import MemoInput from './MemoInput'
 
-export default function OriginSelector({ value, onChange, note, onNoteChange }) {
+export default function OriginSelector({ value, onChange, notes, onNoteChange }) {
   const toggle = (id) => {
     onChange(
       value.includes(id) ? value.filter((v) => v !== id) : [...value, id],
     )
   }
+
+  const selected = ORIGINS.filter((o) => value.includes(o.id))
 
   return (
     <div className="field">
@@ -24,7 +26,23 @@ export default function OriginSelector({ value, onChange, note, onNoteChange }) 
           </button>
         ))}
       </div>
-      <MemoInput value={note} onChange={onNoteChange} />
+      {selected.length > 0 && (
+        <div className="origin-notes">
+          {selected.map((o) => (
+            <div key={o.id} className="origin-notes__row">
+              <span
+                className="origin-notes__dot"
+                style={{ background: o.color }}
+              />
+              <MemoInput
+                value={notes[o.id] ?? ''}
+                onChange={(v) => onNoteChange(o.id, v)}
+                placeholder="何が気になってる？"
+              />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
