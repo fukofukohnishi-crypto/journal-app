@@ -1,4 +1,4 @@
-export default function MemoInput({ value, onChange }) {
+export default function MemoInput({ value, onChange, placeholder = 'メモ（任意）' }) {
   const handleChange = (e) => {
     const next = e.target.value.replace(/\n/g, '').slice(0, 40)
     onChange(next)
@@ -10,7 +10,7 @@ export default function MemoInput({ value, onChange }) {
       className="memo-input"
       value={value}
       onChange={handleChange}
-      placeholder="メモ（任意）"
+      placeholder={placeholder}
       maxLength={40}
     />
   )

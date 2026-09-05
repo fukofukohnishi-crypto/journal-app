@@ -34,11 +34,18 @@ export default function DayRecords({ date, refreshKey }) {
               />
             ))}
           </span>
-          {(r.originNote || r.actionNote) && (
-            <span className="day-records__note">
-              {[r.originNote, r.actionNote].filter(Boolean).join(' ／ ')}
-            </span>
-          )}
+          {(() => {
+            const noteTexts = Object.values(r.originNotes ?? {}).filter(
+              Boolean,
+            )
+            const combined = [...noteTexts, ...(r.thoughts ?? [])]
+            if (combined.length === 0) return null
+            return (
+              <span className="day-records__note">
+                {combined.join(' ／ ')}
+              </span>
+            )
+          })()}
         </div>
       ))}
     </div>
