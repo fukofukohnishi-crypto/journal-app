@@ -41,25 +41,44 @@ export default function ThoughtsSelector({ value, onChange }) {
         </button>
       </div>
 
-      <svg className="plate" width="100%" height="56" viewBox="0 0 200 56">
+      <svg className="plate" width="100%" height="84" viewBox="0 0 200 84">
         <ellipse
           cx="100"
-          cy="46"
-          rx="80"
-          ry="7"
+          cy="60"
+          rx="90"
+          ry="20"
+          fill="var(--surface)"
+          stroke="var(--chip-border)"
+          strokeWidth="1.5"
+        />
+        <ellipse
+          cx="100"
+          cy="57"
+          rx="62"
+          ry="11"
           fill="none"
           stroke="var(--chip-border)"
           strokeWidth="1.5"
         />
-        {value.map((_, i) => (
-          <circle
-            key={i}
-            cx={100 - ((value.length - 1) * 9) / 2 + (i % 12) * 9}
-            cy={40 - Math.floor(i / 12) * 8}
-            r="4"
-            fill="var(--text-muted)"
-          />
-        ))}
+        {value.map((_, i) => {
+          const perRow = 7
+          const row = Math.floor(i / perRow)
+          const col = i % perRow
+          const itemsInRow = Math.min(perRow, value.length - row * perRow)
+          const x = 100 - ((itemsInRow - 1) * 17) / 2 + col * 17
+          const y = 52 - row * 15
+          return (
+            <circle
+              key={i}
+              cx={x}
+              cy={y}
+              r="8"
+              fill="var(--text-muted)"
+              stroke="var(--surface)"
+              strokeWidth="1.5"
+            />
+          )
+        })}
       </svg>
 
       <div className="thought-list">
